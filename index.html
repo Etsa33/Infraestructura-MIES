@@ -105,6 +105,35 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
+
+	L.Control.Watermark=L.Control.extend({
+            onAdd:function(map){
+                var img = L.DomUtil.create('img');
+                img.src = 'logo6.png';
+                img.style.width = '260px';
+                return img;
+                },
+                onRemove:function(map){},
+                });
+                L.control.watermark = function(opts){
+                    return new L.Control.Watermark(opts);
+                    }
+                L.control.watermark({position:'bottomleft'}).addTo(map);
+
+	L.Control.Watermark=L.Control.extend({
+            onAdd:function(map){
+                var img = L.DomUtil.create('img');
+                img.src = 'infra_mies.png';
+                img.style.width = '150px';
+                return img;
+                },
+                onRemove:function(map){},
+                });
+                L.control.watermark = function(opts){
+                    return new L.Control.Watermark(opts);
+                    }
+                L.control.watermark({position:'bottomright'}).addTo(map);
+
         map.createPane('pane_Googlemaps_0');
         map.getPane('pane_Googlemaps_0').style.zIndex = 400;
         var layer_Googlemaps_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
